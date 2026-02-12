@@ -1,6 +1,6 @@
 # Atmosphere | Premium Weather App
 
-**Project URL**: [View Live Project](https://example.com/weather-app)
+**Project URL**: [[View Live Project](https://example.com/weather-app)](https://roadmap.sh/projects/weather-app)
 
 A modern, responsive weather application built with pure HTML, CSS, and JavaScript. It features a premium glassmorphism design, smooth animations, and integration with the Visual Crossing Weather API.
 
