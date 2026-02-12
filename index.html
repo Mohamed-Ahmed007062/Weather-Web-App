@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmosphere | Premium Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons (Development CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-background"></div>
+    <div class="app-container">
+        <!-- Header / Search -->
+        <header class="app-header">
+            <div class="logo">
+                <i data-lucide="cloud-sun"></i>
+                <span>Atmosphere</span>
+            </div>
+            <div class="search-wrapper">
+                <input type="text" id="locationInput" placeholder="Search city..." autocomplete="off">
+                <button id="searchBtn" aria-label="Search">
+                    <i data-lucide="search"></i>
+                </button>
+                <button id="geoBtn" aria-label="Use Current Location">
+                    <i data-lucide="map-pin"></i>
+                </button>
+                <button id="refreshBtn" aria-label="Refresh Weather">
+                    <i data-lucide="rotate-cw"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Logic Container -->
+        <main>
+            <!-- Current Weather -->
+            <section id="currentWeather" class="weather-card glass-panel hidden">
+                <div class="weather-header">
+                    <div class="location-info">
+                        <h1 id="cityName">--</h1>
+                        <p id="currentDate">--</p>
+                    </div>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temp-container">
+                        <span id="temperature">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="condition-container">
+                        <p id="conditionText">--</p>
+                        <div class="high-low">
+                            H: <span id="tempHigh">--</span>° L: <span id="tempLow">--</span>°
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather-details-grid">
+                    <div class="detail-item">
+                        <i data-lucide="wind"></i>
+                        <span class="label">Wind</span>
+                        <span class="value" id="windSpeed">-- km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <i data-lucide="droplets"></i>
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i data-lucide="cloud-rain"></i>
+                        <span class="label">Rain</span>
+                        <span class="value" id="rainChance">--%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Forecasting...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error-state glass-panel hidden">
+                <i data-lucide="alert-circle"></i>
+                <p id="errorMessage">Something went wrong</p>
+            </div>
+
+            <!-- Hourly Forecast -->
+            <section id="forecastSection" class="forecast-section hidden">
+                <h3>24-Hour Forecast</h3>
+                <div class="forecast-track" id="hourlyTrack">
+                    <!-- Forecast items injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
